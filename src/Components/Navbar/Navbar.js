@@ -1,13 +1,38 @@
-import React from "react"; // Importing the necessary modules from React library
-// import { Link } from "react-router-dom"; // Importing the Link component from react-router-dom library
+import React, { useState, useEffect } from "react"; // Importing the necessary modules from React library
+import { Link, useNavigate } from "react-router-dom"; // Importing the Link component from react-router-dom library
 import "./Navbar.css"; // Importing the CSS styles for the Landing_Page component
 
-// Defining the Function component Landing_Page
+
 const Navbar = () => {
+    const [username, setUsername] = useState(sessionStorage.getItem('name') || '');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const[email,setEmail]=useState("");
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      const storedemail = sessionStorage.getItem("email");
+      if (storedemail) {
+        setIsLoggedIn(true);
+        setUsername(storedemail);
+      }
+    }, []);
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('auth-token');
+        sessionStorage.removeItem('name');
+        sessionStorage.removeItem('phone');
+        sessionStorage.removeItem('email');
+        setUsername(''); // Clear the username in the state
+        // Optionally, redirect the user to the login page
+        navigate('/login');
+        setIsLoggedIn(false);
+    };
+
     return (
         <nav>
             <div className="nav__logo">
-                <a href="/">
+                <Link to="/">
                 StayHealthy 
                 <svg xmlns="http://www.w3.org/2000/svg" height="26" width="26" viewBox="0 0 1000 1000" style={{fill:"#3685fb"}}>
                     <title>Doctor With Stethoscope SVG icon</title>
@@ -19,7 +44,7 @@ const Navbar = () => {
                         </g>
                     </g>
                 </svg>
-                </a>
+                </Link>
                 <span>.</span>
             </div>
             <div className="nav__icon" >
@@ -27,21 +52,30 @@ const Navbar = () => {
             </div>
             <ul className="nav__links active">
                 <li className="link">
-                <a href="../Landing_Page/LandingPage.html">Home</a>
+                    <Link to="/">Home</Link>
                 </li>
                 <li className="link">
-                <a href="/">Appointments</a>
+                    <Link to="/appointments">Appointments</Link>
                 </li>
-                <li className="link">
-                <a href="../Sign_Up/Sign_Up.html">
-                    <button className="btn1">Sign Up</button>
-                </a>
-                </li>
-                <li className="link">
-                <a href="../Login/Login.html">
-                    <button className="btn1">Login</button>
-                </a>
-                </li>
+                {isLoggedIn ? (
+                    <>
+                        <li className="link">
+                        <span>Welcome, {username}</span>
+                        </li>
+                        <li className="link">
+                        <button className="btn2" onClick={handleLogout}>Logout</button>
+                        </li>
+                    </>
+                    ) : (
+                    <>
+                        <li className="link">
+                        <Link to="/signup"><button className="btn1">Sign Up</button></Link>
+                        </li>
+                        <li className="link">
+                        <Link to="/login"><button className="btn1">Login</button></Link>
+                        </li>
+                    </>
+                )}
             </ul>
         </nav>
     );

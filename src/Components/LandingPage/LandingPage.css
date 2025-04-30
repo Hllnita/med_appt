@@ -1,0 +1,111 @@
+/* --- Hero Section Styles --- */
+.hero-section {
+  padding-top: 100px; /* Increased padding-top to account for fixed navbar height */
+  padding-bottom: 80px;
+  text-align: left;
+  position: relative; /* For absolute positioning of blobs */
+  overflow: hidden;
+  background-color: #f9f9f9; /* Example background */
+}
+
+.flex-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #222;
+  line-height: 1.2;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.hero-section h4 {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.button {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+.button:hover {
+  background: linear-gradient(to right, #4c069e, #0e49a0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.blob-cont {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+.blob {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(106, 17, 203, 0.6);
+  opacity: 0.6;
+  filter: blur(80px);
+}
+
+.blue1 {
+  background: rgba(37, 117, 252, 0.5);
+  filter: blur(60px);
+}
+
+.blob-cont:nth-of-type(1) {
+  top: 10%;
+  left: 80%;
+}
+
+.blob-cont:nth-of-type(2) {
+  top: 60%;
+  left: 10%;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section h4 {
+    font-size: 1rem;
+  }
+
+  .flex-hero {
+    text-align: center;
+    align-items: center;
+  }
+}
