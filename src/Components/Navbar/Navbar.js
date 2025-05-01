@@ -6,7 +6,7 @@ import "./Navbar.css"; // Importing the CSS styles for the Landing_Page componen
 const Navbar = () => {
     const [username, setUsername] = useState(sessionStorage.getItem('name') || '');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const[email,setEmail]=useState("");
+    // const[email,setEmail]=useState("");
 
     const navigate = useNavigate();
 
