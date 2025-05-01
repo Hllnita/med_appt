@@ -9,7 +9,7 @@ import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Components/LandingPage/LandingPage';
 import SignUp from './Components/Sign_Up/Sign_Up';
 import Login from './Components/Login/Login';
-import InstantConsultation from './components/InstantConsultation/InstantConsultation';  
+import InstantConsultation from './Components/InstantConsultation/InstantConsultation';  
 
 // Function component for the main App
 function App() {
