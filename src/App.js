@@ -11,6 +11,7 @@ import SignUp from './Components/Sign_Up/Sign_Up';
 import Login from './Components/Login/Login';
 import BookingConsultation from './Components/BookingConsultation';
 import InstantConsultation from './Components/InstantConsultation/InstantConsultation';  
+import Notification from './Components/Notification/Notification';
 
 // Function component for the main App
 function App() {
@@ -18,21 +19,20 @@ function App() {
   // Render the main App component
   return (
     <div className="App">
-        {/* Set up BrowserRouter for routing */}
         <BrowserRouter>
-          {/* Display the Navbar component */}
-          <Navbar/>
+            <Notification>
+                <Navbar/>
+                <Routes>
+                    <Route path="/" element={<LandingPage/>}/>
+                    <Route path="/signup" element={<SignUp/>}/>
+                    <Route path="/login" element={<Login/>}/>
 
-          {/* Set up the Routes for different pages */}
-          <Routes>
-            {/* Define individual Route components for different pages */}
-            <Route path="/" element={<LandingPage/>}/>
-            <Route path="/signup" element={<SignUp/>}/>
-            <Route path="/login" element={<Login/>}/>
+                    <Route path="/booking-consultation" element={<BookingConsultation/>}/>
+                    <Route path="/instant-consultation" element={<InstantConsultation />} />
 
-            <Route path="/booking-consultation" element={<BookingConsultation/>}/>
-            <Route path="/instant-consultation" element={<InstantConsultation />} />
-          </Routes>
+                    <Route path="/notification" element={<component_name/>}/> //Replace the component_route with the component path and component_name with the component name as imported in the App.js file.                    
+                </Routes>
+          </Notification>
         </BrowserRouter>
     </div>
   );

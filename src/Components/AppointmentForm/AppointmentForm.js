@@ -7,7 +7,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState('');
-    const [selectedSlot, setSelectedSlot] = useState(null);
+    // const [selectedSlot, setSelectedSlot] = useState(null);
   
     const timeSlots = [
         '08:00 AM', '08:30 AM', '09:00 AM', '09:30 AM',
@@ -22,13 +22,13 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
         setSelectedTime(e.target.value);
     };
 
-    const handleSlotSelection = (slot) => {
-      setSelectedSlot(slot);
-    };
+    // const handleSlotSelection = (slot) => {
+    //   setSelectedSlot(slot);
+    // };
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ name, phoneNumber, selectedDate,setSelectedTime });
       setName('');
       setPhoneNumber('');
     };
