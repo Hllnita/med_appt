@@ -1,0 +1,32 @@
+/* Given Review Form Styling */
+.given-review-form {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  background-color: #e9f2ff;
+  max-width: 400px;
+}
+
+.given-review-form h2 {
+  color: #0d6efd;
+}
+
+.given-review-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.given-review-form input,
+.given-review-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.given-review-form button {
+  background-color: #084dbe;
+}

@@ -1,0 +1,36 @@
+/* Review table styling */
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-table th,
+.review-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.review-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.review-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Feedback link style */
+.feedback-link {
+  color: #0d6efd;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.feedback-link:hover {
+  color: #084298;
+}
