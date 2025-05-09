@@ -34,3 +34,11 @@
 .feedback-link:hover {
   color: #084298;
 }
+
+/* Style for the disabled button */
+button:disabled {
+  background-color: #d3d3d3;  /* Light gray background */
+  color: #777;  /* Lighter text color */
+  cursor: not-allowed;  /* Change the cursor to indicate it's not clickable */
+  border: 1px solid #ccc;  /* Lighter border */
+}
