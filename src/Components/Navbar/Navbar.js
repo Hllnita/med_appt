@@ -6,6 +6,7 @@ import "./Navbar.css"; // Importing the CSS styles for the Landing_Page componen
 const Navbar = () => {
     const [username, setUsername] = useState(sessionStorage.getItem('name') || '');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     // const[email,setEmail]=useState("");
 
     const navigate = useNavigate();
@@ -57,10 +58,20 @@ const Navbar = () => {
                 <li className="link">
                     <Link to="/booking-consultation">Appointments</Link>
                 </li>
+                <li className="link">
+                    <Link to="/reviews">Reviews</Link>
+                </li>
                 {isLoggedIn ? (
                     <>
-                        <li className="link">
-                        <span>Welcome, {username}</span>
+                        <li className="link" >
+                        <span onMouseEnter={() => setDropdownOpen(true)}
+        onMouseLeave={() => setDropdownOpen(false)}>Welcome, {username}</span>
+                        {dropdownOpen && (
+                            <div className="dropdown-menu">
+                                <Link to="/profile">Your Profile</Link>
+                                <Link to="/report">Your Report</Link>
+                            </div>
+                        )}
                         </li>
                         <li className="link">
                         <button className="btn2" onClick={handleLogout}>Logout</button>

@@ -72,3 +72,60 @@
     padding: 8px 12px; /* Add padding inside buttons (8 pixels top/bottom, 12 pixels left/right) */
     cursor: pointer; /* Change cursor to pointer when hovering over buttons in details container */
 }
+
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: white;
+}
+
+.navbar-left a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-username {
+  font-weight: bold;
+  color: white;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 170px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 999;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  background: none;
+  border: none;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
