@@ -46,12 +46,13 @@ const Notification = ({ children }) => {
         <>
           <div className="appointment-card">
             <div className="appointment-card__content">
-              {/* Display title for appointment details */}
-              <h3 className="appointment-card__title">Appointment Details</h3>
-              <p className="appointment-card__message">
-                {/* Display doctor's name from doctorData */}
-                <strong>Doctor:</strong> {doctorData?.name}
-              </p>
+                <h3 className="appointment-card__title">Appointment Details</h3>
+                <p><strong>Doctor:</strong> {appointmentData.doctorName}</p>
+                <p><strong>Speciality:</strong> {appointmentData.doctorSpeciality}</p>
+                <p><strong>Patient Name:</strong> {appointmentData.name}</p>
+                <p><strong>Phone Number:</strong> {appointmentData.phoneNumber}</p>
+                <p><strong>Date:</strong> {appointmentData.selectedDate}</p>
+                <p><strong>Time Slot:</strong> {appointmentData.selectedTime}</p>
             </div>
           </div>
         </>
