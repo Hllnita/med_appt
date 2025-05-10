@@ -6,17 +6,26 @@ import "./Navbar.css"; // Importing the CSS styles for the Landing_Page componen
 const Navbar = () => {
     const [username, setUsername] = useState(sessionStorage.getItem('name') || '');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
     // const[email,setEmail]=useState("");
 
     const navigate = useNavigate();
 
     useEffect(() => {
-      const storedemail = sessionStorage.getItem("email");
-      if (storedemail) {
+      const storeName= sessionStorage.getItem("name");
+      if (storeName) {
         setIsLoggedIn(true);
-        setUsername(storedemail);
+        setUsername(storeName);
       }
+      const handleStorageChange = () => {
+        setUsername(sessionStorage.getItem("name") || "");
+      };
+
+      window.addEventListener("storage", handleStorageChange);
+        return () => {
+            window.removeEventListener("storage", handleStorageChange);
+      };
+
     }, []);
 
     const handleLogout = () => {
@@ -63,13 +72,20 @@ const Navbar = () => {
                 </li>
                 {isLoggedIn ? (
                     <>
-                        <li className="link" >
-                        <span onMouseEnter={() => setDropdownOpen(true)}
-        onMouseLeave={() => setDropdownOpen(false)}>Welcome, {username}</span>
-                        {dropdownOpen && (
-                            <div className="dropdown-menu">
+                        <li className="link" style={{ position: "relative" }}>
+                        <span onClick={() => setShowDropdown(!showDropdown)} style={{ cursor: "pointer" }}>Welcome, {username}</span>
+                        {showDropdown && (
+                            <div className="dropdown-menu" style={{
+                                position: "absolute",
+                                right: 0,
+                                background: "white",
+                                color: "black",
+                                padding: "10px",
+                                border: "1px solid #ccc",
+                                borderRadius: "4px"
+                            }}>
                                 <Link to="/profile">Your Profile</Link>
-                                <Link to="/report">Your Report</Link>
+                                <Link to="/reports">Your Report</Link>
                             </div>
                         )}
                         </li>

@@ -1,0 +1,35 @@
+.reports-table-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reports-table th,
+.reports-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.btn-view,
+.btn-download {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn-download {
+  background-color: #28a745;
+}
+
+.btn-view:hover,
+.btn-download:hover {
+  opacity: 0.9;
+}
